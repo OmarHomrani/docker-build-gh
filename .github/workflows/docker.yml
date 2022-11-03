@@ -23,4 +23,4 @@ jobs:
         with:
           context: ./dockerfiles/default
           push: true
-          tags: python/test:latest
+          tags: homraniomar/pythontools:1.0
