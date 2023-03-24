@@ -51,7 +51,7 @@ jobs:
         uses: actions/create-release@v1
         id: create_release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH-token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: test-release
@@ -61,7 +61,7 @@ jobs:
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH-token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./reports/reportfile.md
