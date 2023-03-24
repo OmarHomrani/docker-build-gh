@@ -64,4 +64,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./reports/reportfile.md
           asset_name: report
-          asset_content_type: text/html
+          asset_content_type: application/zip
