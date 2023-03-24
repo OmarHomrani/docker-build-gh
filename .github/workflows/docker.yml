@@ -27,26 +27,12 @@ jobs:
 
   docker-release:
     runs-on: ubuntu-latest
-<<<<<<< HEAD
-    depends-on: docker
-=======
     needs: docker
->>>>>>> 225479bd545716971784130a1c43ceb98c222d64
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: create folder
-        run: mkdir /reports
-        shell: bash
-      - name: create file
-        run: touch /reports/file.md
-        shell: bash
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: reports
-<<<<<<< HEAD
           path: reports/
-=======
-          path: reports/
->>>>>>> 225479bd545716971784130a1c43ceb98c222d64
