@@ -30,9 +30,11 @@ jobs:
         run: |
           list_input="${{ inputs.example_list }}"
           IFS=',' read -ra arr <<< "$list_input"
-          echo "::set-output name=split_list::${arr[*]}"
+          echo  "split_list=${arr[*]" >> $GITHUB_OUTPUT
           
       - name: Use split list
         run: |
           echo "The split list is: ${{ steps.split_input.outputs.split_list }}"
-          # Perform operations on the split list
+          for val in ${{ steps.split_input.outputs.split_list }}; do
+            echo $val
+          done
