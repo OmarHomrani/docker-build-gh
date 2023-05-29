@@ -12,11 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Dump Users
-        shell: bash
+      - name: Parse list input
         run: |
-          echo "${{ github.event.inputs.sesas }}"
-          for value in "${{ github.event.inputs.sesas }}"
-          do
-            echo $value
-          done
+          list_input="${{ fromJson(inputs.sesa) }}"
+          echo "The list input is: $list_input"
