@@ -17,7 +17,9 @@ jobs:
         run: |
           list_input="${{ fromJson(inputs.example_list) }}"
           echo "The list input is: $list_input"
-          for value in $list_input
-          do
-             echo $value
+      - name: Iterate over the list
+        run: |
+          for item in $list_input; do
+            echo "Processing item: $item"
+            # Perform operations on each item
           done
