@@ -30,7 +30,7 @@ jobs:
         run: |
           list_input="${{ inputs.example_list }}"
           IFS=',' read -ra arr <<< "$list_input"
-          echo  "split_list=${arr[*]" >> $GITHUB_OUTPUT
+          echo  split_list=${arr[*] >> $GITHUB_OUTPUT
           
       - name: Use split list
         run: |
