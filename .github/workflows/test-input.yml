@@ -16,3 +16,7 @@ jobs:
         shell: bash
         run: |
           echo "${{ github.event.inputs.sesas }}"
+          for value in "${{ github.event.inputs.sesas }}"
+          do
+            echo $value
+          done
