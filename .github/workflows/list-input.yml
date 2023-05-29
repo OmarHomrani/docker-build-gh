@@ -1,18 +1,16 @@
 name: Example Workflow
 
 on:
-  push:
-    branches:
-      - main
-
-jobs:
-  example_job:
-    runs-on: ubuntu-latest
-    
+  workflow_dispatch:
     inputs:
       example_list:
         description: 'Example list input'
         required: true
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest   
+
 
     steps:
       - name: Parse list input
