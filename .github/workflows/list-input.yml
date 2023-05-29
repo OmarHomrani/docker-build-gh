@@ -12,13 +12,27 @@ jobs:
     runs-on: ubuntu-latest   
 
 
+#     steps:
+#       - name: Parse list input
+#         run: |
+#           list_input="${{ fromJson(inputs.example_list) }}"
+#           echo "The list input is: $list_input"
+#       - name: Iterate over the list
+#         run: |
+#           for item in $list_input; do
+#             echo $item
+#           done
+
+
     steps:
-      - name: Parse list input
+      - name: Split list input
+        id: split_input
         run: |
-          list_input="${{ fromJson(inputs.example_list) }}"
-          echo "The list input is: $list_input"
-      - name: Iterate over the list
+          list_input="${{ inputs.example_list }}"
+          IFS=',' read -ra arr <<< "$list_input"
+          echo "::set-output name=split_list::${arr[*]}"
+          
+      - name: Use split list
         run: |
-          for item in $list_input; do
-            echo $item
-          done
+          echo "The split list is: ${{ steps.split_input.outputs.split_list }}"
+          # Perform operations on the split list
