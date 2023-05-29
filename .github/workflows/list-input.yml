@@ -1,0 +1,23 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    
+    inputs:
+      example_list:
+        description: 'Example list input'
+        required: true
+
+    steps:
+      - name: Parse list input
+        run: |
+          list_input="${{ fromJson(inputs.example_list) }}"
+          echo "The list input is: $list_input"
+          
+      # Additional steps in your workflow...
