@@ -20,6 +20,5 @@ jobs:
       - name: Iterate over the list
         run: |
           for item in $list_input; do
-            echo "Processing item: $item"
-            # Perform operations on each item
+            echo $item
           done
