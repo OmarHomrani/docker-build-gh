@@ -2,9 +2,10 @@ name: Dump Users (manual)
 
 on:
   workflow_dispatch:
-    sesas:
-      type: string
-      required: true
+    inputs:
+      sesas:
+        type: string
+        required: true
 
 jobs:
   dump_users_information:
