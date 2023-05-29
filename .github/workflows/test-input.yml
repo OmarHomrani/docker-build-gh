@@ -15,4 +15,4 @@ jobs:
       - name: Dump Users
         shell: bash
         run: |
-          echo "${{ github.event.inputs.message }}
+          echo "${{ github.event.inputs.sesas }}"
